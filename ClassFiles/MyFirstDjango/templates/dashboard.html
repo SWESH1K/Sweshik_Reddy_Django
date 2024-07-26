@@ -2,5 +2,23 @@
 {% load static %}
 
 {% block content %}
+
+<h1>Dashboard</h1>
+&nbsp
+<table class="table">
+    <tr>
+        <th>URL</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    {% for customer in customers %}
+    <tr>
+        <td>{{customer.id}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.age}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 <a href="{% url 'home' %}"><button type="button" class="btn btn-success">Home</button></a>
 {% endblock %}
