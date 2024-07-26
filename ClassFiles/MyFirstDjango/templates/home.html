@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
+
 <h1>Hello from {{name}}</h1>
 
+{% block content %}
+<h3>This is the home page after using the base.html as template.</h3>
 
 <form action="add" method="post">
     {% csrf_token %}
@@ -8,3 +12,5 @@
 
     <input type="submit">
 </form>
+
+{% endblock %}
