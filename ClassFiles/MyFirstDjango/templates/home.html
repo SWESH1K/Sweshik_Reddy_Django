@@ -5,6 +5,12 @@
 {% block content %}
 <h3>This is the home page after using the base.html as template.</h3>
 
+<style>
+    input {
+        margin-bottom: 10px;
+    }
+</style>
+
 <form action="add" method="post">
     {% csrf_token %}
     Enter the first number: <input type="text" name="num1"><br>
