@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Customer Name: {{cust}}</h1>
+
+<h1>Orders</h1>
+&nbsp
+
+<table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Status</th>
+    </tr>
+    {% for i in orders %}
+    <tr>
+        <td>{{i.product}}</td>
+        <td>{{i.status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+\<button type="button" class="btn btn-success" onClick="javascript:history.go(-1);">Back</button>
+
+{% endblock %}

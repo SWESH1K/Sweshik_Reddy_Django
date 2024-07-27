@@ -3,22 +3,48 @@
 
 {% block content %}
 
-<h1>Dashboard</h1>
+<h1 style = "font-weight: bold">Dashboard</h1>
+<hr style = "height: 5px; border-width: 4px; color: green">
 &nbsp
-<table class="table">
+<h3 style = "font-weight: bold">Customers</h3>
+<table class="table" title="Customers">
     <tr>
-        <th>URL</th>
         <th>Name</th>
         <th>Age</th>
+        <th>Orders</th>
     </tr>
     {% for customer in customers %}
     <tr>
-        <td>{{customer.id}}</td>
         <td>{{customer.name}}</td>
         <td>{{customer.age}}</td>
+        <td><a href="{% url 'customer' customer.id %}">View</a></td>
     </tr>
     {% endfor %}
 </table>
 
-<a href="{% url 'home' %}"><button type="button" class="btn btn-success">Home</button></a>
+&nbsp &nbsp
+<h3 style = "font-weight: bold">Orders</h3>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Product</th>
+        <th>Status</th>
+        <th>Update Order</th>
+        <th>Delete Order</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{order.customer}}</td>
+        <td>{{order.product}}</td>
+        <td>{{order.status}}</td>
+        <td><a href="{% url 'update_order' order.id %}"><button type="button" class="btn btn-warning">Update</button></a></td>
+        <td><a href="{% url 'delete_order' order.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<a href="{% url 'create_order' %}"><button type="button" class="btn btn-success">Create Order</button></a>
+<button type="button" class="btn btn-success" onClick="javascript:history.go(-1);">Back</button>
 {% endblock %}
